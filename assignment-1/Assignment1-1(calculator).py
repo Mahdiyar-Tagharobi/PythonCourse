@@ -4,13 +4,13 @@ print("----Simple Calculator----")
 
 print("--------\n + = sum\n - = sub\n * = mul\n / = dev\n f = fuctorial\n sin\n log\n sqrt\n cos\n tan\n cot\n --------")
 
-op = input("please enter your desire operator: ")
+op = input("Please enter your desire operator: ")
 
 if op == "+" or op == "-" or op == "*" or op == "/":
-    fn = float(input("enter first number"))
-    sn = float(input("enter second number"))
+    fn = float(input("Enter first number"))
+    sn = float(input("Enter second number"))
 else :
-    fn = float(input("enter the number"))
+    fn = float(input("Enter the number"))
 
 if op == "+":
     print(fn + sn)
