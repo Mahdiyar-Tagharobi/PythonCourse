@@ -1,14 +1,14 @@
 n = int(input("Enter a number: "))
 
-f = [0]
-i = 0
-x = 0
-y = 1
-nn = 1
-while i <= n-2:
-    f.append(nn)
-    y = x
-    x = nn
-    nn = x + y
-    i += 1
-    print(f)
+lst = [0]
+num1 = 0
+num2 = 0
+num3 = 1
+new_num = 1
+while num1 <= n-2:
+    lst.append(new_num)
+    num3 = num2
+    num2 = new_num
+    new_num = num2 + num3
+    num1 += 1
+print(lst)
