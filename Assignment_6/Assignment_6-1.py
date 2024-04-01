@@ -188,4 +188,6 @@ while True:
                     else:
                         print("please select an empty cell :/")
                 else :
-                        print("please select avalaible cell")                        
+                        print("please select avalaible cell")     
+    else : 
+        print("Enter the mode correctly")                   
