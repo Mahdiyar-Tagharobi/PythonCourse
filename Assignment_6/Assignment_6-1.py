@@ -167,7 +167,7 @@ while True:
                     
 
             print("---Computer's 2 turn:")
-            n = Computer
+            n = "Computer"
             
             while True:
                 row = r.randint(0, 2)
