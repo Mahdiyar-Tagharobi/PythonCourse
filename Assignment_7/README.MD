@@ -1,44 +1,37 @@
-# Tic Tac Toe and Spirograph Project
+# Shop Inventory Management System
 
-This repository contains two Python projects:
+This Python script is a simple command-line based inventory management system for a shop. It allows the user to perform basic operations such as adding, editing, removing, searching, and buying products from the inventory.
 
-Tic Tac Toe Game: A classic two-player game implemented using Python. Players take turns placing their marks (X or O) on a 3x3 grid. The first player to get three marks in a row (horizontally, vertically, or diagonally) wins. In case of a tie (all cells filled without a winner), the game declares a draw.
-Spirograph: This code generates a dynamic spirograph using the Turtle graphics library. It creates a visually appealing pattern with colorful segments, customizable based on the number of segments and color randomization.
-Tic Tac Toe Game 
+## Features
 
- ## Dependencies:
+- **Add Products**: Add new products to the inventory with unique product codes.
+- **Edit Products**: Modify the details of existing products in the inventory.
+- **Remove Products**: Delete products from the inventory.
+- **Search Products**: Look up products by their code and name.
+- **Show Product List**: Display the entire list of products in the inventory.
+- **Buy Products**: Purchase products and update the inventory count.
+- **Exit**: Close the application.
 
-pyfiglet library Used for creating an ASCII art title for the game.
+## How to Use
 
-turtle (included in the standard Python library): Provides Turtle graphics functionalities for drawing shapes.
+1. Run the script using a Python interpreter.
+2. The main menu will be displayed with options from 1 to 7.
+3. Enter the number corresponding to the action you want to perform.
+4. Follow the on-screen prompts to add, edit, remove, search, or buy products.
 
-## Gameplay:
+## File Structure
 
-The game starts with an ASCII art title displayed using pyfiglet.
-The game board is shown, initially empty with "-" in each cell.
-Players take turns entering row and column coordinates (0-2) to place their marks (X or O).
-The game validates user input to ensure valid coordinates and empty cells.
-The game checks for a winner (three marks in a row) after each turn.
-If there's a winner, the game congratulates the winning player and exits.
-If all cells are filled without a winner, the game declares a draw and exits.
-Spirograph 
+- `database.txt`: Text file used to store the inventory data.
+- `main.py`: The main Python script that runs the inventory management system.
 
+## Dependencies
 
-### Customization (Optional):
+- `pyfiglet`: This package is used to display the ASCII art title 'Welcome to shop'. Make sure to install it using `pip install pyfiglet` before running the script.
 
-While the code generates a dynamic spirograph with random colors, you can modify the following variables in spirograph.py to customize the output:
-colors: A list of color names used for randomization. Add or remove colors to change the palette.
-i: The number of segments in the spirograph. Higher values create more complex patterns.
-Contribution
+## Note
 
-If you'd like to contribute to this project, feel free to fork the repository, make your changes, and create a pull request.
+The script uses a text file (`database.txt`) to persist data. Ensure that this file is present in the `Assignment_7` directory relative to the script.
 
-## License
+## Disclaimer
 
-This repository is distributed under the MIT License (https://opensource.org/license/mit). You are free to use, modify, and distribute the code under the terms of this license.
-
-## Additional Notes
-
-Consider including error handling for invalid user input in the Tic Tac Toe game.
-
-At the end, I hope this improved README provides clear instructions, explanations, and guidance for both Python projects in your repository!
+This script is for educational purposes only. Please ensure data validation and error handling according to your use case.

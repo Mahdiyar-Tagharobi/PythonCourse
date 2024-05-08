@@ -74,16 +74,18 @@ def show_list():
         print(p["code"], "\t", p["name"], "\t\t", p["price"])
 
 def buy():
+    continue_s = True
     found = False
     factor_name = []
     factor_count = []
-    while True:
+    
+    while continue_s:
         r_code = input("Enter product code: ")
         r_name = input("Enter product name: ")
-        r_count = input("Enter product count: ")
+        r_count = int(input("Enter product count: "))
 
         for product in PROD:
-            if product["code"] == r_code and product["name"] == r_name and product["count"] >= r_count:
+            if product["code"] == r_code and product["name"] == r_name and int(product["count"]) >= r_count:
                 index = PROD.index(product)
                 
                 PROD[index]["count"] = str(int(PROD[index]["count"]) - int(r_count))
@@ -105,17 +107,17 @@ def buy():
             
             found = False
         else :
-            factor_name.append(r_name)
-            print(factor_name)
-            factor_count.append(r_count)
-            print(factor_count)   
-               
-            print("You bought these items:")
-            for i in range(len(factor_name)):
-                print(f"You bought Product {factor_name[i]} , {factor_count[i]} of this item")
+            if found:
+                factor_name.append(r_name)
+                print(factor_name)
+                factor_count.append(r_count)
+                print(factor_count)   
+                
+                print("You bought these items:")
+                for i in range(len(factor_name)):
+                    print(f"You bought Product {factor_name[i]} , {factor_count[i]} of this item")
               
-            break
-
+            continue_s = False
 
 def write_data(datas):
     with open("Assignment_7\database.txt", "w") as file:
