@@ -27,6 +27,7 @@ def add():
         imports = {"code": code, "name": name, "price": price, "count": count }
         PROD.append(imports)
         write_data(PROD)
+        print("Successfully added! \n")
     else :
         print("This Product code is available, please enter different Product code")
 
@@ -42,6 +43,7 @@ def edit():
                 count = input("Enter the new number of product is available ")
                 PROD[index] = {"code": code, "name": name, "price": price, "count": count }
                 write_data(PROD)
+                print("Successfully edited! \n")
                 return
     print("product not found")
             
@@ -54,6 +56,7 @@ def remove():
         if product["code"] == r_code and product["name"] == r_name:
             PROD.remove(product)
     write_data(PROD)
+    print("Successfully removed! \n")
             
 def search():
     r_code = input("Enter product code:")
@@ -71,18 +74,47 @@ def show_list():
         print(p["code"], "\t", p["name"], "\t\t", p["price"])
 
 def buy():
-    r_code = input("Enter product code:")
-    r_name = input("Enter product name:")
-    r_count = input("Enter product count")
+    found = False
+    factor_name = []
+    factor_count = []
+    while True:
+        r_code = input("Enter product code: ")
+        r_name = input("Enter product name: ")
+        r_count = input("Enter product count: ")
 
-    for product in PROD:
-        if product["code"] == r_code and product["name"] == r_name and product["count"] >= r_count:
-            print('SOld!')
-            index = PROD.index(product)
-            PROD[index]["count"] = str(int(PROD[index]["count"]) - int(r_count))
-            write_data(PROD)
-            return
-    print("Product not found or isn't available")
+        for product in PROD:
+            if product["code"] == r_code and product["name"] == r_name and product["count"] >= r_count:
+                index = PROD.index(product)
+                
+                PROD[index]["count"] = str(int(PROD[index]["count"]) - int(r_count))
+                write_data(PROD)
+                
+                print('SOld!')
+                found = True
+                
+        if not found:
+            print("Product not found or isn't available")
+            
+        
+        if input("Do you want to continue shopping?(y/n): ") == "y" :  
+            if found:
+                factor_name.append(r_name)
+                print(factor_name)
+                factor_count.append(r_count)
+                print(factor_count)
+            
+            found = False
+        else :
+            factor_name.append(r_name)
+            print(factor_name)
+            factor_count.append(r_count)
+            print(factor_count)   
+               
+            print("You bought these items:")
+            for i in range(len(factor_name)):
+                print(f"You bought Product {factor_name[i]} , {factor_count[i]} of this item")
+              
+            break
 
 
 def write_data(datas):
@@ -100,20 +132,23 @@ greetings = fig.figlet_format("Welcome to shop", font="slant")
 print(greetings)
 read_from_db()
 
-menu_show()
-ch = input('Enter your choice: ')
+while True:
+    menu_show()
+    ch = input('Enter your choice: ')
 
-if ch == '1':
-    add()
-elif ch == '2':
-    edit()
-elif ch == '3':
-    remove()
-elif ch == '4':
-    search()
-elif ch == '5':
-    show_list()
-elif ch == '6':
-    buy()
-elif ch == '7':
-    exit()
+    if ch == '1':
+        add()
+    elif ch == '2':
+        edit()
+    elif ch == '3':
+        remove()
+    elif ch == '4':
+        search()
+    elif ch == '5':
+        show_list()
+    elif ch == '6':
+        buy()
+    elif ch == '7':
+        exit()
+    else :
+        print("please enter number correctly")
