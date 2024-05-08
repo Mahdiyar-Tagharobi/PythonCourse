@@ -16,6 +16,8 @@ def read_from_db():
 
 def menu_show():
     print("1- Add \n2- Edit \n3- Remove \n4- Search \n5- Show List \n6- Buy \n7- Exit")
+    print("--------------------------------------------------")       
+
 
 def add():
     code = input("Enter product code ")
@@ -30,6 +32,8 @@ def add():
         print("Successfully added! \n")
     else :
         print("This Product code is available, please enter different Product code")
+        
+    print("--------------------------------------------------")       
 
 def edit():
     r_code = input("Enter product code:")
@@ -46,6 +50,7 @@ def edit():
                 print("Successfully edited! \n")
                 return
     print("product not found")
+    print("--------------------------------------------------")       
             
 
 def remove():
@@ -57,6 +62,8 @@ def remove():
             PROD.remove(product)
     write_data(PROD)
     print("Successfully removed! \n")
+    print("--------------------------------------------------")       
+
             
 def search():
     r_code = input("Enter product code:")
@@ -66,13 +73,20 @@ def search():
             print(product["code"], "\t", product["name"], "\t\t", product["price"])
         else:
             print("Product not found")
+            
+    print("--------------------------------------------------")       
+
 
 
 def show_list():
-    print("code\t name\t\t price\t\t")
+    print("--------------------------------------------------")       
+    print("| code\t  name\t\t price\t   Available\t |")
     for p in PROD:
-        print(p["code"], "\t", p["name"], "\t\t", p["price"])
-
+        if int(p["count"]) > 0:
+            print("|",p["code"], "\t|", p["name"], "\t|\t", p["price"], '\t | Available now |')
+        else:
+            print("|",p["code"], "\t|", p["name"], "\t|\t", p["price"], '\t | Not available |')
+    print("--------------------------------------------------")       
 def buy():
     continue_s = True
     found = False
@@ -81,11 +95,11 @@ def buy():
     
     while continue_s:
         r_code = input("Enter product code: ")
-        r_name = input("Enter product name: ")
         r_count = int(input("Enter product count: "))
 
         for product in PROD:
-            if product["code"] == r_code and product["name"] == r_name and int(product["count"]) >= r_count:
+            if product["code"] == r_code and int(product["count"]) >= r_count:
+                factor_name.append(product["name"])
                 index = PROD.index(product)
                 
                 PROD[index]["count"] = str(int(PROD[index]["count"]) - int(r_count))
@@ -100,25 +114,20 @@ def buy():
         
         if input("Do you want to continue shopping?(y/n): ") == "y" :  
             if found:
-                factor_name.append(r_name)
-                print(factor_name)
                 factor_count.append(r_count)
-                print(factor_count)
             
             found = False
         else :
             if found:
-                factor_name.append(r_name)
-                print(factor_name)
                 factor_count.append(r_count)
-                print(factor_count)   
-                
-                print("You bought these items:")
+                                
+                print("\nYou bought these items:")
                 for i in range(len(factor_name)):
-                    print(f"You bought Product {factor_name[i]} , {factor_count[i]} of this item")
+                    print(f"--You bought Product {factor_name[i]} , {factor_count[i]} of this item")
               
             continue_s = False
-
+    print("--------------------------------------------------")       
+    
 def write_data(datas):
     with open("Assignment_7\database.txt", "w") as file:
         for idx, data in enumerate(datas):
