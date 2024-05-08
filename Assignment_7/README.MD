@@ -13,11 +13,12 @@ This Python script is a simple command-line based inventory management system fo
 - **Exit**: Close the application.
 
 ## How to Use
-
-1. Run the script using a Python interpreter.
-2. The main menu will be displayed with options from 1 to 7.
-3. Enter the number corresponding to the action you want to perform.
-4. Follow the on-screen prompts to add, edit, remove, search, or buy products.
+1. Clone project in your device with this code : ``` git clone https://github.com/Mahdiyar-Tagharobi/PythonCourse/blob/main/Assignment_7/Assignment_7-1.py ```
+2. Install requirments with this code : ``` pip install pyfiglet ```
+3. Run main file with pip ``` python Assignment_7-1.py code ```
+4. The main menu will be displayed with options from 1 to 7.
+5. Enter the number corresponding to the action you want to perform.
+6. Follow the on-screen prompts to add, edit, remove, search, or buy products.
 
 ## File Structure
 
