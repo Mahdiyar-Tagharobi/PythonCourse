@@ -66,13 +66,16 @@ def remove():
 
             
 def search():
+    found = False
+
     r_code = input("Enter product code:")
     r_name = input("Enter product name:")
     for product in PROD:
         if product["code"] == r_code and product["name"] == r_name:
             print(product["code"], "\t", product["name"], "\t\t", product["price"])
-        else:
-            print("Product not found")
+            found = True
+    if not found:
+        print("Product not found")
             
     print("--------------------------------------------------")       
 
@@ -80,12 +83,12 @@ def search():
 
 def show_list():
     print("--------------------------------------------------")       
-    print("| code\t  name\t\t price\t   Available\t |")
+    print(" code\t  name\t\t price\t   Available\t ")
     for p in PROD:
         if int(p["count"]) > 0:
-            print("|",p["code"], "\t|", p["name"], "\t|\t", p["price"], '\t | Available now |')
+            print("",p["code"], "\t", p["name"], "\t\t", p["price"], '\t  Available now ')
         else:
-            print("|",p["code"], "\t|", p["name"], "\t|\t", p["price"], '\t | Not available |')
+            print("",p["code"], "\t", p["name"], "\t\t", p["price"], '\t  Not available ')
     print("--------------------------------------------------")       
 def buy():
     continue_s = True
