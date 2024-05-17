@@ -131,7 +131,7 @@ khane
 live
 zendegi
 camera
-dorbim
+dorbin
 picture
 tasvir
 use
