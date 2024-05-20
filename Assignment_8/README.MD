@@ -1,38 +1,35 @@
-# Shop Inventory Management System
+# Translator
 
-This Python script is a simple command-line based inventory management system for a shop. It allows the user to perform basic operations such as adding, editing, removing, searching, and buying products from the inventory.
+This Python script provides a simple command-line translator between English and Persian, with the ability to add new words to the translation database. It utilizes the pyfiglet library for a visually appealing welcome message and the gtts library for text-to-speech functionality.
 
-## Features
+## Features:
 
-- **Add Products**: Add new products to the inventory with unique product codes.
-- **Edit Products**: Modify the details of existing products in the inventory.
-- **Remove Products**: Delete products from the inventory.
-- **Search Products**: Look up products by their code and name.
-- **Show Product List**: Display the entire list of products in the inventory.
-- **Buy Products**: Purchase products and update the inventory count.
-- **Exit**: Close the application.
+### Translation: Translate sentences between English and Persian using a pre-defined word bank.
+### Word Bank Management:
+- Add new word pairs (English-Persian) to the translation database.
+- The word bank is stored in a text file .
+- Text-to-Speech: generates an audio file  of the translated sentence (slow pronunciation for clarity).
+
+## Requirements:
+
+- Python 3 (tested with 3.x)
+- A database whose name is **Translate.txt**
+- pyfiglet library
+- gtts library
+- internet for generating Text_To_Speech
 
 ## How to Use
-1. Clone project in your device with this code : ``` git clone https://github.com/Mahdiyar-Tagharobi/PythonCourse/blob/main/Assignment_7/Assignment_7-1.py ```
-2. Install requirments with this code : ``` pip install pyfiglet ```
-3. Run main file with pip ``` python Assignment_7-1.py code ```
-4. The main menu will be displayed with options from 1 to 7.
-5. Enter the number corresponding to the action you want to perform.
-6. Follow the on-screen prompts to add, edit, remove, search, or buy products.
+1. Clone project in your device with this code : ``` git clone https://github.com/Mahdiyar-Tagharobi/PythonCourse/tree/main/Assignment_8 ```
+2. Install requirments with these codes : ``` pip install pyfiglet ``` and ``` pip install gtts ```
+3. Run main file with pip ``` python Assignment_8.py code ```
+4. Follow the interactive menu:
+  1- **English to persian:** Translate a sentence from English to Persian.
+  2- **Persian to English:** Translate a sentence from Persian to English.
+  3- **Add new word to database:** Add a new word pair (English-Persian) to the translation database.
+  4- **Exit:** Exit the program.
 
-## File Structure
+## Notes:
 
-- `database.txt`: Text file used to store the inventory data.
-- `main.py`: The main Python script that runs the inventory management system.
-
-## Dependencies
-
-- `pyfiglet`: This package is used to display the ASCII art title 'Welcome to shop'. Make sure to install it using `pip install pyfiglet` before running the script.
-
-## Note
-
-The script uses a text file (`database.txt`) to persist data. Ensure that this file is present in the `Assignment_7` directory relative to the script.
-
-## Disclaimer
-
-This script is for educational purposes only. Please ensure data validation and error handling according to your use case.
+The script uses a text file (`Translate.txt`) to persist data. Ensure that this file is present in the `Assignment_8` directory relative to the script.
+The translation accuracy depends on the quality and completeness of the initial word bank.
+Text-to-speech is currently limited to English and Urdu languages provided by gtts.
