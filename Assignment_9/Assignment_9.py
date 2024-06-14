@@ -9,7 +9,7 @@ def msg(message ,m):
     return bot.send_message(message.chat.id, m)
      
 
-bot = telebot.TeleBot("Your bot token", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
+bot = telebot.TeleBot("Your bot token", parse_mode=None)
 
 k1 = telebot.types.KeyboardButton("/game")
 k2 = telebot.types.KeyboardButton("/age")
@@ -78,18 +78,20 @@ def max_index_command(message):
     bot.register_next_step_handler(m, max_index)
 
 
-
 @bot.message_handler(commands=['qrcode'])
 def qrcode_command(message):
     m = bot.send_message(message.chat.id, "Enter a sequence to convert to qrcode")
     bot.register_next_step_handler(m, qrcode_maker)
 
 
-
 @bot.message_handler(commands=['help'])
 def help(message):
     bot.send_message(message.chat.id ,"/game :\t For play number game\n/restart :\t to restart the game\n/age :\t Calculate your age\n/voice :\t Convert your text to voice\n/max :\t show the biggest number\n/argmax :\t show the index of biggest number\n/qrcode :\t Make a QRcode with your text\n/help :\t Show help", reply_markup=markup)
             
+
+@bot.message_handler(func=lambda m: True)
+def menu(message):
+    help(message)
 
 def game(message):
     try:
@@ -169,5 +171,7 @@ def qrcode_maker(message):
     res.save("QRcode1.png")
     with open("QRcode1.png", "rb") as photo:
         bot.send_photo(message.chat.id, photo)
+
+
 
 bot.infinity_polling()
