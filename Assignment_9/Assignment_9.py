@@ -9,7 +9,7 @@ def msg(message ,m):
     return bot.send_message(message.chat.id, m)
      
 
-bot = telebot.TeleBot("7169692979:AAFgvs7Iy6gRqHyv9noDu6EOpdtEuXB4V2g", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
+bot = telebot.TeleBot("Your bot token", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
 
 k1 = telebot.types.KeyboardButton("/game")
 k2 = telebot.types.KeyboardButton("/age")
