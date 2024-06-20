@@ -9,7 +9,7 @@ def msg(message ,m):
     return bot.send_message(message.chat.id, m)
      
 
-bot = telebot.TeleBot("Your bot token", parse_mode=None)
+bot = telebot.TeleBot("7169692979:AAFgvs7Iy6gRqHyv9noDu6EOpdtEuXB4V2g", parse_mode=None)
 
 k1 = telebot.types.KeyboardButton("/game")
 k2 = telebot.types.KeyboardButton("/age")
@@ -136,9 +136,9 @@ def voice(message):
     try: 
         voice = message.text
         voice = gtts.gTTS(voice, lang='en', slow=True)
-        voice.save("Assignment_9/Voice.mp3")
+        voice.save("..\Assignment_9\Voice.mp3")
 
-        with open("Assignment_9/Voice.mp3", "rb") as file:
+        with open("..\Assignment_9\Voice.mp3", "rb") as file:
             bot.send_voice(message.chat.id, file)
     except: 
         bot.send_message(message.chat.id, "Error...\ntry again", reply_markup=markup)
@@ -168,8 +168,8 @@ def max_index(message):
 
 def qrcode_maker(message):
     res = q.make(message.text)
-    res.save("QRcode1.png")
-    with open("QRcode1.png", "rb") as photo:
+    res.save("..\Assignment_9\QRcode1.png")
+    with open("..\Assignment_9\QRcode1.png", "rb") as photo:
         bot.send_photo(message.chat.id, photo)
 
 
