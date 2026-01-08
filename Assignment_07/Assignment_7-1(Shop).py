@@ -4,7 +4,7 @@ PROD = []
 
 def read_from_db():
 
-    file = open("Assignment_7\database.txt", "r")
+    file = open("Assignment_07\database.txt", "r")
 
     for line in file.readlines():
         
@@ -132,7 +132,7 @@ def buy():
     print("--------------------------------------------------")       
     
 def write_data(datas):
-    with open("Assignment_7\database.txt", "w") as file:
+    with open("Assignment_07\database.txt", "w") as file:
         for idx, data in enumerate(datas):
             product =  data['code'] + "," + data['name'] + "," + data['price'] + "," + data['count']
             product = product.strip("\n")

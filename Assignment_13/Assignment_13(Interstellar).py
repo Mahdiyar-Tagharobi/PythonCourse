@@ -1,6 +1,6 @@
 import random as rand
 import arcade as arc
-from spaceship import Spaceship
+from spaceship import my_spaceship
     
 class Enemy(arc.Sprite):
     def __init__(self, game):
@@ -10,34 +10,53 @@ class Enemy(arc.Sprite):
         self.width = 48
         self.height = 48
         self.speed = 4
+        
+    def move(self):
+        self.center_y -= self.speed
 
 class Game(arc.Window):
     def __init__(self):
         super().__init__(width=1000, height=800, title="Space Game")
         arc.set_background_color(arc.color.DARK_BLUE_GRAY)
-
-        self.sprites = arc.SpriteList()
         background = arc.Sprite(":resources:images/backgrounds/stars.png")
         background.center_x = self.width // 2
         background.center_y = self.height // 2 
+
+        self.change_x = 0
+        self.change_y = 0
+        self.sprites = arc.SpriteList()
+        self.enemies = []
         
-        self.spaceship = Spaceship(self)
-        self.enemy = Enemy(self)
+        self.my_spaceship = my_spaceship(self, background.center_x)
         
         self.sprites.append(background)
-        self.sprites.append(self.spaceship)
-        self.sprites.append(self.enemy)
+        self.sprites.append(self.my_spaceship)
 
     def on_draw(self):
         self.clear()
         self.sprites.draw()
+        
     def on_key_press(self, symbol: int, modifiers: int):
-        if symbol == 97: 
-            self.spaceship.center_x -= self.spaceship.speed
-        elif symbol == 100:
-            self.spaceship.center_x += self.spaceship.speed
+        if symbol == arc.key.LEFT or symbol == arc.key.A: 
+            self.my_spaceship.change_x = -1
+        elif symbol == arc.key.RIGHT or symbol == arc.key.D:
+            self.my_spaceship.change_x = 1
+        elif symbol == arc.key.SPACE:
+            self.my_spaceship.change_x = 0
+        
 
     def on_update(self, delta_time):
-        self.enemy.center_y -= self.enemy.speed
+        self.my_spaceship.move()
+        
+        for enemy in self.enemies:
+            enemy.move()
+        
+        if rand.randint(1, 150) == 10:    
+            self.new_enemy = Enemy(self)
+            self.enemies.append(self.new_enemy)
+            self.sprites.append(self.new_enemy)
+        
+        
+        
 window = Game()
 arc.run()
